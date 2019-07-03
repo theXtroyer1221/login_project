@@ -10,10 +10,11 @@
   <body>
     <?php
     $x = 5;
-     echo '<span>the number is' . " " . "$x" '</span>';
 
-     echo "<p>" the number is $x '</p>'";
+     echo "<p> the number is $x </p>";
      ?>
+     <p>welcome</p> <?php echo $_POST["username"]; ?><br>
+<p>Your email address is: </p> <?php echo $_POST["email"]; ?>
 
   </body>
 </html>
