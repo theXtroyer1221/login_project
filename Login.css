@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  background: url(background.png);
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  color: #fff;
+  margin: 0;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 950px;
+  height: 600px;
+
+  border-radius: 15px;
+  color: #fff;
+  background-color: #2f303a;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-input {
+  width: 699px;
+  height: 50px;
+  margin-top: 51px;
+  background-color: transparent;
+  border: 5px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  transition: 0.5s;
+  color: white;
+}
+
+.login-input::placeholder {
+  position: relative;
+  left: 5px;
+  top: 5px;
+  font-family: Poppins;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 46px;
+  display: flex;
+
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 31px;
+}
+
+.login-input:placeholder:focus {
+  position: relative;
+  left: 5px;
+  top: 5px;
+  font-family: Poppins;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 46px;
+
+  display: flex;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+
+input[type=submit] {
+  margin-top: 51px;
+  width: 196px;
+  height: 88px;
+  background: #2DAD67;
+  border-radius: 15px;
+  transition: background-color 0.8s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 54px;
+  color: #FFFFFF;
+
+}
+
+input[type=submit]:hover {
+  background-color: #258e54;
+}
+
+.login_username {
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
