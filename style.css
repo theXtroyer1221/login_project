@@ -6,7 +6,6 @@ body {
 }
 
 p {
-  color: #fff;
   margin: 0;
 }
 
@@ -96,9 +95,34 @@ input[type=submit]:hover {
 }
 
 .login_username {
-  font-size: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.email_login {
+  font-size: 30px;
+}
+
+.container {
+  background-color: #fff;
+  color: #2f303a !important;
+  padding: 15px 25px;
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.transparent {
+  background-color: transparent;
+  color: #fff !important;
+  margin-top: 0px;
+  padding: 150px !important;
+}
+
+.container h5 {
+  color: #2f303a;
+  font-size: 16px;
+  font-family: "poppins";
+  font-weight: 700;
 }
