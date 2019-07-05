@@ -11,24 +11,25 @@
 
 <body>
   <?php
-   $username = $_POST["username"];
-   $email = $_POST["email"];
-   $password = $_POST["password"];
+     $username = $_POST["username"];
+     $email = $_POST["email"];
+     $password = $_POST["password"];
 
-   if (!empty($username) || !empty($email) || !empty($password)) {
-     $host = "localhost";
-     $dbUsername = "root";
-     $dbpassword = "";
-     $dbname = "login_project_php";
+     if (!empty($username) || !empty($email) || !empty($password)) {
+       $host = "localhost";
+       $dbUsername = "root";
+       $dbpassword = "";
+       $dbname = "login_project_php";
 
-     //create connection
-     $conn = new mysqli($host, $dbUsername, $dbpassword, $dbname);
-     if (mysqli_connect_error()) {
-        die('connect error('. mysqli_connnect_errorno() . ')'. mysqli_connect_error());
-     } else {
-         $SELECT = "SELECT email from users where email = ? limit 1";
-         $INSERT = "INSERT INTO `users`( `username`, `email`, `password`) VALUES ( ?, ?, ?)";
+       //create connection
+       $conn = new mysqli($host, $dbUsername, $dbpassword, $dbname);
+       if (mysqli_connect_error()) {
+          die('connect error('. mysqli_connnect_errorno() . ')'. mysqli_connect_error());
+       } else {
+           $SELECT = "SELECT email from users where email = ? limit 1";
+           $INSERT = "INSERT INTO `users`( `username`, `email`, `password`) VALUES ( ?, ?, ?)";
 
+<<<<<<< HEAD
          //prepare statment
          $stmt = $conn->prepare($SELECT);
          $stmt->bind_param("sss", $username, $email , $password);
@@ -36,20 +37,34 @@
          $stmt->bind_result($email);
          $stmt->store_result();
          $rnum = $stmt->num_rows;
-
-         if ($rnum==0) {
-           $stmt->close();
-
-           $stmt = $conn->prepare($INSERT);
-           $stmt->bind_param("sss", $username, $email, $password);
+=======
+           //prepare statment
+           $stmt = $conn->prepare($SELECT);
+           $stmt->bind_param("sss", $username, $email , $password);
            $stmt->execute();
-           echo "User created peace";
-         } else {
-           echo "Someone already registerd with this email ";
-         }
-         $stmt->close();
-         $conn->close();
+           $stmt->bind_result($email);
+           $stmt->store_result();
+           $rnum = $stmt->num_rows;
+>>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
+
+           if ($rnum==0) {
+             $stmt->close();
+
+             $stmt = $conn->prepare($INSERT);
+             $stmt->bind_param("sss", $username, $email, $password);
+             $stmt->execute();
+             echo "User created peace";
+           } else {
+             echo "Someone already registerd with this email ";
+           }
+           $stmt->close();
+           $conn->close();
+       }
+     } else {
+       echo "<p> all fields are required </p>";
+       die();
      }
+<<<<<<< HEAD
    } else {
      echo "<p> all fields are required </p>";
      die();
@@ -58,6 +73,12 @@
     <div class="login_username container transparent">
       <p>welcome
         <?php echo $username; ?><br>
+=======
+        ?>
+      <div class="login_username container transparent">
+      <p>
+        <?php echo "welcome $username"; ?><br>
+>>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
       </p>
       <p class="email_login">Your email address is:
         <?php echo $email; ?>
