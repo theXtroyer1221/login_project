@@ -29,7 +29,7 @@
            $SELECT = "SELECT email from users where email = ? limit 1";
            $INSERT = "INSERT INTO `users`( `username`, `email`, `password`) VALUES ( ?, ?, ?)";
 
-<<<<<<< HEAD
+
          //prepare statment
          $stmt = $conn->prepare($SELECT);
          $stmt->bind_param("sss", $username, $email , $password);
@@ -37,7 +37,7 @@
          $stmt->bind_result($email);
          $stmt->store_result();
          $rnum = $stmt->num_rows;
-=======
+
            //prepare statment
            $stmt = $conn->prepare($SELECT);
            $stmt->bind_param("sss", $username, $email , $password);
@@ -45,7 +45,7 @@
            $stmt->bind_result($email);
            $stmt->store_result();
            $rnum = $stmt->num_rows;
->>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
+
 
            if ($rnum==0) {
              $stmt->close();
@@ -64,8 +64,8 @@
        echo "<p> all fields are required </p>";
        die();
      }
-<<<<<<< HEAD
-   } else {
+
+    else {
      echo "<p> all fields are required </p>";
      die();
    }
@@ -73,12 +73,11 @@
     <div class="login_username container transparent">
       <p>welcome
         <?php echo $username; ?><br>
-=======
+
         ?>
       <div class="login_username container transparent">
       <p>
         <?php echo "welcome $username"; ?><br>
->>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
       </p>
       <p class="email_login">Your email address is:
         <?php echo $email; ?>
