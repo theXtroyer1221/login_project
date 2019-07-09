@@ -10,6 +10,23 @@
 </head>
 
 <body>
+  <span class="top"></span>
+    <nav>
+        <div class="logo">
+            <h4>Abstract Act</h4>
+        </div>
+        <ul class="nav-links">
+            <li><a href="top">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">sign in</a></li>
+            <li><a href="#">Sign up</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
   <?php
      $username = $_POST["username"];
      $email = $_POST["email"];
@@ -29,33 +46,25 @@
            $SELECT = "SELECT email from users where email = ? limit 1";
            $INSERT = "INSERT INTO `users`( `username`, `email`, `password`) VALUES ( ?, ?, ?)";
 
-<<<<<<< HEAD
-         //prepare statment
-         $stmt = $conn->prepare($SELECT);
-         $stmt->bind_param("sss", $username, $email , $password);
-         $stmt->execute();
-         $stmt->bind_result($email);
-         $stmt->store_result();
-         $rnum = $stmt->num_rows;
-=======
            //prepare statment
            $stmt = $conn->prepare($SELECT);
-           $stmt->bind_param("sss", $username, $email , $password);
+           $stmt->bind_param("s", $email);
            $stmt->execute();
            $stmt->bind_result($email);
            $stmt->store_result();
            $rnum = $stmt->num_rows;
->>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
 
            if ($rnum==0) {
              $stmt->close();
 
              $stmt = $conn->prepare($INSERT);
-             $stmt->bind_param("sss", $username, $email, $password);
+             $stmt->bind_param("s", $email);
              $stmt->execute();
-             echo "User created peace";
+              $username = "welcome $username";
+              $email = "you email addres:$email";
            } else {
-             echo "Someone already registerd with this email ";
+            $username = "Someone already registerd with this email";
+
            }
            $stmt->close();
            $conn->close();
@@ -64,28 +73,17 @@
        echo "<p> all fields are required </p>";
        die();
      }
-<<<<<<< HEAD
-   } else {
-     echo "<p> all fields are required </p>";
-     die();
-   }
-      ?>
-    <div class="login_username container transparent">
-      <p>welcome
-        <?php echo $username; ?><br>
-=======
         ?>
       <div class="login_username container transparent">
       <p>
-        <?php echo "welcome $username"; ?><br>
->>>>>>> 17dd164fe4f7580d6d031d280155d87ed6438040
+        <?php echo "$username"; ?><br>
       </p>
-      <p class="email_login">Your email address is:
+      <p class="email_login">
         <?php echo $email; ?>
       </p>
     </div>
     <div id="main_container" class="container">
-      <h>Thanks for registering at Lorem ipsum</h5>
+      <h1>Thanks for registering at Lorem ipsum</h1>
         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
           irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem, ipsum dolor sit amet consectetur
           adipisicing elit. Distinctio ab excepturi exercitationem est ipsam nam, culpa consequatur porro suscipit eos modi odit in reprehenderit blanditiis maiores nulla dicta sunt voluptas!</p>
